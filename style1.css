@@ -1,0 +1,141 @@
+ /* Variables CSS */
+        :root {
+            --primary: red;
+            --secondary: yellow;
+            --dark: #2c3e50;
+            --light: blacl;
+            --shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Reset global */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* En-tête */
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Navigation principale */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+        }
+
+        /* Galerie photo améliorée */
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Lightbox CSS */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox:target {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        /* Section vidéos */
+
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 80.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 30%;
+
+        }
+
+        /* Promotions */
+        .promo-banner {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .media-gallery {
+                grid-template-columns: 1fr;
+            }
+        }

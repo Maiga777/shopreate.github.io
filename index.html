@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ShopreateShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style1.css">
+
+
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e67e22;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header img {
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .header img:hover {
+            transform: scale(1.03);
+        }
+
+        .main-nav {
+            background: var(--light);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .promo-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ff9f43);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 15px;
+        }
+
+        .promo-carousel {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .promo-carousel a {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .promo-carousel a:hover {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-top: 56.25%;
+            margin: 0rem 0;
+
+            
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 15%;
+            width: 70%;
+            height: 35%;
+
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            border-top: 3px solid var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header class="header">
+	<img src="logoshopreate.jpg" alt="SHOPREATE SHOP LIBRE SERVICE"
+	
+	 width="555" 
+     height="150"
+	
+	>
+		
+        <h1>SuperMarché ShopreateShop LivreService</h1>
+        <p><h2>Vos courses en toute simplicité</h2></p>
+    </header>
+
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#produits">Produits</a></li>
+            <li><a href="#promotions">Promotions</a></li>
+            <li><a href="#medias">Médias</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+	<main>
+        <!-- Section promotions -->
+        <section id="promotions" class="promo-banner">
+            <h2>Promotions de la semaine</h2>
+            <div class="promo-carousel">
+                <a href="#promo1">1</a> | 
+                <a href="#promo2">2</a> | 
+                <a href="#promo3">3</a>
+            </div>
+        </section>
+
+        <!-- Galerie multimédia -->
+        <section id="medias" class="media-section">
+            <h2 style="text-align: center; padding: 2rem">Notre univers en images</h2>
+            
+            <div class="media-gallery">
+                <!-- Photos -->
+                <a href="#photo1" class="gallery-item">
+                    <img width "350" height="100" src="rconect1.jpg" alt="Description de l'image">
+                </a>
+                
+				<a href="#photo2" class="gallery-item">
+					<img width "350" height="100" src="preference.jpg" alt="Description de l'image">
+                </a>
+				
+				<a href="#photo3" class="gallery-item">
+					<img width "350" height="100" src="bonprix.jpg" alt="Description de l'image">
+                </a>
+				
+				
+				<a href="#photo4" class="gallery-item">
+					<img width "350" height="100" src="onlinesv.jpg" alt="Description de l'image">
+                </a>
+				
+				<a href="#photo5" class="gallery-item">
+					<img width "350" height="100" src="chocolam.jpg" alt="Description de l'image">
+                </a>
+			</div>
+
+			                <!-- Lightbox -->
+            <div id="photo1" class="lightbox">
+                    <a href="#medias" class="close"></h1>X-FERMER</h1></a>
+                    <img src="rconect1.jpg" class="lightbox-content" alt="Rayon">
+                </div>
+				
+				
+				<div id="photo2" class="lightbox">
+                    <a href="#medias" class="close"></h1>X-FERMER</h1></a>
+					<img src="preference.jpg" class="lightbox-content" alt="Rayon">
+                </div>
+				
+				<div id="photo3" class="lightbox">
+                    <a href="#medias" class="close"></h1>X-FERMER</h1></a>
+					<img src="bonprix.jpg" class="lightbox-content" alt="Rayon">
+                </div>
+				
+				<div id="photo4" class="lightbox">
+                    <a href="#medias" class="close"></h1>X-FERMER</h1></a>
+					<img src="onlinesv.jpg" class="lightbox-content" alt="Rayon">
+                </div>
+				
+				<div id="photo5" class="lightbox">
+                    <a href="#medias" class="close"></h1>X-FERMER</h1></a>
+                    <img src="chocolam.jpg" class="lightbox-content" alt="Rayon">
+                </div>
+				
+            </div>
+		
+
+		
+                <!-- Vidéos -->
+						
+				<h2 style="text-align: center; padding: 2rem">Vidéo du jour</h2>
+
+            <div class="video-section">
+                
+                <div class="video-container">
+                <center>    <video autoplay muted width="1300" height="550" center controls poster="image/video-thumbnail.jpg">
+                        <source src="vidshop1.mp4" type="video/mp4">
+                    </video>
+                </div></center>
+			</section>
+
+        <!-- Catalogue produits -->
+		<section id="produits" style="padding: 2rem">
+		<h2 style="text-align: center;">Nos produits phares</h2>
+        
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img width "500" height="300" src="produitfar.jpg" alt="pain importé" loading="lazy">
+                    <h3>Pain importé Bio</h3>
+                    <p>	A partir de 3000 jusq'a 4500</p>
+                </div>
+                <!-- Ajouter d'autres produits -->
+            </div>
+        </section>
+	</main>
+
+    <footer style="background: var(--dark); color: white; padding: 2rem; text-align: center">
+        <p>Horaires : 24h/24h</p>
+        <p>Adresse : BADALABOUGOU SEMA II PRES DE LA PHARAMACIE DU 2eme PONT, BAMAKO</p>
+        <p>☎️ +223 93 94 94 94</p>
+    </footer>
+	
+</body>
+</html>
