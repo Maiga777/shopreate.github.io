@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>ShopreateShop</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0>
-<link rel="stylesheet" href="style1.css">
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
     <style>
         :root {
             --primary: #2c3e50;
@@ -20,31 +18,27 @@
             font-family: 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: var(--dark);
+            margin: 0;
         }
 
         .header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 2rem;
+            padding: 1rem;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
         .header img {
-            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .header img:hover {
-            transform: scale(1.03);
+            margin: 1rem auto;
         }
 
         .main-nav {
             background: var(--light);
-            padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,19 +47,23 @@
 
         .nav-links {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
+            flex-direction: column;
             list-style: none;
             padding: 0;
             margin: 0;
+            display: none;
+        }
+
+        .nav-links.active {
+            display: flex;
         }
 
         .nav-links a {
             color: var(--dark);
             text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
 
@@ -74,13 +72,18 @@
             color: white;
         }
 
-        .promo-banner {
-            background: linear-gradient(135deg, #ff6b6b, #ff9f43);
-            color: white;
-            padding: 2rem;
+        .menu-toggle {
+            display: block;
+            padding: 1rem;
             text-align: center;
-            margin: 2rem 0;
-            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        /* Sections principales */
+        .promo-banner,
+        .media-section,
+        .product-grid {
+            padding: 1rem;
         }
 
         .promo-carousel {
@@ -90,122 +93,105 @@
             margin-top: 1rem;
         }
 
-        .promo-carousel a {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .promo-carousel a:hover {
-            background: white;
-            transform: scale(1.2);
-        }
-
         .media-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .gallery-item img:hover {
-            transform: scale(1.05);
-            z-index: 10;
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
 
         .video-wrapper {
             position: relative;
             padding-top: 56.25%;
-            margin: 0rem 0;
-
-            
+            margin: 1rem 0;
         }
 
         .video-wrapper video {
             position: absolute;
             top: 0;
-            left: 15%;
-            width: 70%;
-            height: 35%;
-
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
 
         .product-card {
             background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-
-            object-fit: cover;
             border-radius: 10px;
-            margin-bottom: 1rem;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         footer {
             background: var(--dark);
             color: white;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
+            padding: 2rem 1rem;
             text-align: center;
-            border-top: 3px solid var(--secondary);
         }
 
-        @media (max-width: 768px) {
+        /* Version desktop */
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+
             .nav-links {
-                flex-direction: column;
-                text-align: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
                 gap: 1rem;
             }
-            
+
+            .nav-links a {
+                border-bottom: none;
+                padding: 0.5rem 1rem;
+            }
+
+            .media-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        /* Améliorations mobile */
+        @media (max-width: 480px) {
             .header h1 {
                 font-size: 1.5rem;
+                margin: 0.5rem 0;
+            }
+
+            .header p {
+                font-size: 0.9rem;
+            }
+
+            .product-card img {
+                height: 150px;
+            }
+
+            .lightbox .close {
+                font-size: 1.5rem;
+                padding: 1rem;
             }
         }
     </style>
-
 </head>
 <body>
     <header class="header">
-	<img src="logoshopreate.jpg" alt="SHOPREATE SHOP LIBRE SERVICE"
-	
-	 width="555" 
-     height="150"
-	
-	>
-		
+        <img src="logoshopreate.jpg" alt="SHOPREATE SHOP LIBRE SERVICE">
         <h1>SuperMarché ShopreateShop LivreService</h1>
         <p><h2>Vos courses en toute simplicité</h2></p>
     </header>
 
     <nav class="main-nav">
+        <div class="menu-toggle">☰ Menu</div>
         <ul class="nav-links">
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#produits">Produits</a></li>
@@ -213,22 +199,23 @@
             <li><a href="#medias">Médias</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-		
+
     </nav>
+
+    <!-- Le reste du contenu reste similaire -->
+	
 
 	<main>
         <!-- Section promotions -->
         <section id="promotions" class="promo-banner">
-            <h2>Cliquez sur MOBILE WEB pour aller vers la page mobile</h2>
-                   
-	<nav class="main-nav">
+            <h2>Cliquez sur NORMAL WEB pour aller vers la page normal</h2>
+           	<nav class="main-nav">
         <ul class="nav-links">
-            <li><center><a href="indexmobile.html"><h1>MOBILE WEB</h1></a></center></li>
+            <li><center><a href="index.html"><h1>NORMAL WEB</h1></a></center></li>
 
         </ul>
 		
     </nav>
-			
         </section>
 
         <!-- Galerie multimédia -->
@@ -325,5 +312,12 @@
         <p>☎️ +223 93 94 94 94</p>
     </footer>
 	
+
+    <script>
+        // Script pour le menu mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
